@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
 
 import "openzeppelin/access/Ownable.sol";
@@ -55,7 +56,7 @@ contract Turnstile is Ownable, ERC721Enumerable {
         _;
     }
 
-    constructor() ERC721("TurnstileName", "TurnstileSymbol") {}
+    constructor() ERC721("Turnstile", "Turnstile") {}
 
     /// @notice Returns current value of counter used to tokenId of new minted NFTs
     /// @return current counter value
