@@ -1,6 +1,9 @@
 # CIP-001
 Implementation of CIP-001 https://github.com/Canto-Improvement-Proposals/CIPs/blob/main/CIP-001.md
 
+## Setup
+`forge install`
+
 ## Deploy
 Create `.env` file and set Ethereum RPC at `ETHEREUM_RPC_URL` and deployer private key at `PRIVATE_KEY`.
 
