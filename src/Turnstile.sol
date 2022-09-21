@@ -31,7 +31,6 @@ contract Turnstile is Ownable, ERC721Enumerable {
     event DistributeFees(uint256 tokenId, uint256 feeAmount);
 
     error NotAnOwner();
-    error NotSmartContract();
     error AlreadyRegistered();
     error Unregistered();
     error InvalidRecipient();
@@ -50,7 +49,6 @@ contract Turnstile is Ownable, ERC721Enumerable {
     modifier onlyUnregistered() {
         address smartContract = msg.sender;
 
-        if (!Address.isContract(smartContract)) revert NotSmartContract();
         if (isRegistered(smartContract)) revert AlreadyRegistered();
 
         _;

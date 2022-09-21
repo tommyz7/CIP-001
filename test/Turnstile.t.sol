@@ -74,10 +74,6 @@ contract TurnstileTest is Test {
         vm.assume(_smartContract != address(this));
         vm.assume(_recipient != address(0));
 
-        vm.prank(address(1));
-        vm.expectRevert(Turnstile.NotSmartContract.selector);
-        turnstile.register(address(0));
-
         vm.etch(_smartContract, code);
         vm.startPrank(_smartContract);
 
@@ -123,10 +119,6 @@ contract TurnstileTest is Test {
         uint256 tokenId = turnstile.register(_recipient);
         assertEq(turnstile.getTokenId(receiveContract), tokenId);
         assertEq(turnstile.isRegistered(receiveContract), true);
-
-        vm.prank(address(1));
-        vm.expectRevert(Turnstile.NotSmartContract.selector);
-        turnstile.assign(tokenId);
 
         vm.prank(receiveContract);
         vm.expectRevert(Turnstile.AlreadyRegistered.selector);
